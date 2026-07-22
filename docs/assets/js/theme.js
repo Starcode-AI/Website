@@ -1,0 +1,1 @@
+const root=document.documentElement;function set(v){root.dataset.theme=v;localStorage.setItem("sb-theme",v)}export function setupTheme(){set(localStorage.getItem("sb-theme")||(matchMedia("(prefers-color-scheme:light)").matches?"light":"dark"));document.querySelector("[data-theme]")?.addEventListener("click",()=>set(root.dataset.theme==="dark"?"light":"dark"))}
