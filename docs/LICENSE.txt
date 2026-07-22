@@ -1,0 +1,3 @@
+Copyright (c) 2026 Starcode BOM. All rights reserved.
+
+This website package may be used and modified by Starcode BOM. Redistribution, resale, or publication of substantial portions as a template requires prior written permission. Third-party names and trademarks belong to their respective owners.
