@@ -11,4 +11,4 @@ export const config={email:"support@starcode-bom.com",links:[
 {title:"Twitch · Bombblingm",key:"twitch",url:"https://www.twitch.tv/bombblingm",icon:"TV",accent:"#a970ff",group:"social"},
 {title:"Discord Server",key:"discord",url:null,icon:"DC",accent:"#7289ff",group:"social"},
 {title:"PayPal.me",key:"paypal",url:null,icon:"PP",accent:"#47a8ff",group:"support"},
-{title:"Bitcoin",key:"bitcoin",url:null,icon:"₿",accent:"#f7a71b",group:"support"}]};
+{title:"Bitcoin",key:"bitcoin",url:"bitcoin:19wyDX8dyCG9XEoieB4FQwaxy1N4uqrL5M",icon:"₿",accent:"#f7a71b",group:"support"}]};
