@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#07110f">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="The Starcode BOM main domain is temporarily unavailable while the site is being updated. Alternative services remain available.">
+  <title>Site update | Starcode BOM</title>
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%2307110f'/%3E%3Cpath d='M18 20h28M18 32h18M18 44h28' fill='none' stroke='%236ee7c2' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='45' cy='32' r='4' fill='%23f4f7f5'/%3E%3C/svg%3E"
+  >
+
+  <script>
+    (function () {
+      var browserLanguage = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+      var initialLanguage = browserLanguage.indexOf("de") === 0 ? "de" : "en";
+      window.__starcodeInitialLanguage = initialLanguage;
+      document.documentElement.lang = initialLanguage;
+      document.documentElement.className = "js";
+    }());
+  </script>
+
+  <style>
+    :root {
+      --page: #07110f;
+      --page-raised: #0a1714;
+      --surface: rgba(15, 31, 27, 0.76);
+      --surface-solid: #0f1f1b;
+      --surface-hover: #132923;
+      --line: rgba(225, 244, 237, 0.13);
+      --line-strong: rgba(225, 244, 237, 0.22);
+      --text: #f4f7f5;
+      --text-soft: #b4c2bd;
+      --text-muted: #85958f;
+      --accent: #6ee7c2;
+      --accent-soft: rgba(110, 231, 194, 0.12);
+      --accent-line: rgba(110, 231, 194, 0.34);
+      --warning: #f0c675;
+      --warning-soft: rgba(240, 198, 117, 0.1);
+      --shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
+      --content-width: 1180px;
+      --radius-large: 28px;
+      --radius-medium: 18px;
+      --radius-small: 12px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      min-height: 100%;
+      background: var(--page);
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 77% 18%, rgba(39, 122, 98, 0.18), transparent 30rem),
+        radial-gradient(circle at 7% 84%, rgba(33, 83, 69, 0.13), transparent 26rem),
+        var(--page);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      content: "";
+      opacity: 0.28;
+      background-image:
+        linear-gradient(rgba(229, 245, 239, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(229, 245, 239, 0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+      -webkit-mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+
+    body::after {
+      position: fixed;
+      top: -16rem;
+      right: -15rem;
+      z-index: -1;
+      width: 39rem;
+      height: 39rem;
+      border: 1px solid rgba(110, 231, 194, 0.09);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 6rem rgba(110, 231, 194, 0.018),
+        0 0 0 12rem rgba(110, 231, 194, 0.012);
+      pointer-events: none;
+      content: "";
+    }
+
+    ::selection {
+      color: #06100d;
+      background: var(--accent);
+    }
+
+    a,
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    svg {
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 0.8rem;
+      left: 0.8rem;
+      z-index: 50;
+      padding: 0.72rem 1rem;
+      border: 1px solid var(--accent-line);
+      border-radius: 10px;
+      color: var(--page);
+      background: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 720;
+      text-decoration: none;
+      transform: translateY(-160%);
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus {
+      outline: none;
+      transform: translateY(0);
+    }
+
+    .page-shell {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      min-height: 100svh;
+    }
+
+    .site-header,
+    .site-main,
+    .site-footer {
+      width: min(calc(100% - 3rem), var(--content-width));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 92px;
+      padding-block: 1.25rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      min-width: 0;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      position: relative;
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.035);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      position: absolute;
+      left: 10px;
+      width: 18px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--accent);
+      content: "";
+    }
+
+    .brand-mark::before {
+      top: 12px;
+      box-shadow: 0 12px 0 var(--accent);
+    }
+
+    .brand-mark::after {
+      top: 18px;
+      width: 11px;
+      background: rgba(244, 247, 245, 0.9);
+    }
+
+    .brand-name {
+      overflow: hidden;
+      font-size: 0.98rem;
+      font-weight: 690;
+      letter-spacing: -0.01em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .language-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 0.25rem;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .language-button {
+      min-width: 42px;
+      min-height: 34px;
+      padding: 0.38rem 0.65rem;
+      border: 0;
+      border-radius: 8px;
+      color: var(--text-muted);
+      background: transparent;
+      font-size: 0.78rem;
+      font-weight: 760;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition:
+        color 160ms ease,
+        background-color 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .language-button:hover {
+      color: var(--text);
+    }
+
+    .language-button[aria-pressed="true"] {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+    }
+
+    .language-button:focus-visible,
+    .service-card:focus-visible,
+    .brand:focus-visible {
+      outline: 3px solid rgba(110, 231, 194, 0.38);
+      outline-offset: 4px;
+    }
+
+    .site-main {
+      display: flex;
+      align-items: center;
+      padding-block: clamp(3.5rem, 9vh, 7.5rem);
+    }
+
+    .status-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.78fr);
+      gap: clamp(3.5rem, 8vw, 7.75rem);
+      width: 100%;
+      align-items: center;
+    }
+
+    .message-column {
+      position: relative;
+      max-width: 660px;
+      padding-left: 2.1rem;
+    }
+
+    .message-column::before {
+      position: absolute;
+      top: 0.28rem;
+      bottom: 0.35rem;
+      left: 0;
+      width: 2px;
+      border-radius: 999px;
+      background:
+        linear-gradient(
+          to bottom,
+          var(--accent) 0,
+          var(--accent) 4.5rem,
+          rgba(110, 231, 194, 0.18) 4.5rem,
+          rgba(110, 231, 194, 0) 100%
+        );
+      content: "";
+    }
+
+    .status-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.62rem;
+      margin: 0 0 1.45rem;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 760;
+      letter-spacing: 0.14em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .status-indicator {
+      position: relative;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px var(--accent-soft);
+    }
+
+    .status-indicator::after {
+      position: absolute;
+      inset: -5px;
+      border: 1px solid var(--accent-line);
+      border-radius: inherit;
+      content: "";
+      animation: status-pulse 2.8s ease-out infinite;
+    }
+
+    @keyframes status-pulse {
+      0% {
+        opacity: 0.9;
+        transform: scale(0.7);
+      }
+      70%,
+      100% {
+        opacity: 0;
+        transform: scale(1.75);
+      }
+    }
+
+    h1 {
+      max-width: 13ch;
+      margin: 0;
+      font-size: clamp(2.65rem, 6vw, 5.6rem);
+      font-weight: 645;
+      letter-spacing: -0.058em;
+      line-height: 0.98;
+      text-wrap: balance;
+    }
+
+    .lead {
+      max-width: 57ch;
+      margin: clamp(1.65rem, 3vw, 2.25rem) 0 0;
+      color: var(--text-soft);
+      font-size: clamp(1.06rem, 1.55vw, 1.22rem);
+      line-height: 1.72;
+      text-wrap: pretty;
+    }
+
+    .domain-state {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.82rem;
+      max-width: 580px;
+      margin-top: 2.35rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid var(--line);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .domain-state svg {
+      width: 19px;
+      height: 19px;
+      margin-top: 0.15rem;
+      color: var(--warning);
+    }
+
+    .domain-state strong {
+      color: var(--text-soft);
+      font-weight: 650;
+    }
+
+    .services-panel {
+      position: relative;
+      padding: clamp(1.15rem, 2vw, 1.5rem);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-large);
+      background: var(--surface);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .services-panel::before {
+      position: absolute;
+      top: -1px;
+      right: 2rem;
+      left: 2rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-line), transparent);
+      content: "";
+    }
+
+    .services-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.55rem 0.55rem 1.25rem;
+    }
+
+    .services-kicker {
+      margin: 0 0 0.25rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .services-title {
+      margin: 0;
+      font-size: clamp(1.22rem, 2vw, 1.5rem);
+      font-weight: 650;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+    }
+
+    .service-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+      flex: 0 0 auto;
+      padding-bottom: 0.1rem;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .service-count::before {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .services-list {
+      display: grid;
+      gap: 0.72rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .service-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: center;
+      min-height: 106px;
+      padding: 1.1rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-medium);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.024);
+      text-decoration: none;
+      transition:
+        transform 260ms var(--ease),
+        border-color 220ms ease,
+        background-color 220ms ease,
+        box-shadow 260ms var(--ease);
+    }
+
+    .service-card::after {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: linear-gradient(105deg, transparent 45%, rgba(110, 231, 194, 0.055));
+      content: "";
+      opacity: 0;
+      transition: opacity 220ms ease;
+    }
+
+    .service-card:hover {
+      z-index: 1;
+      border-color: var(--accent-line);
+      background: rgba(110, 231, 194, 0.055);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+      transform: translateY(-3px);
+    }
+
+    .service-card:hover::after {
+      opacity: 1;
+    }
+
+    .service-icon {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border: 1px solid var(--accent-line);
+      border-radius: 14px;
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .service-icon svg {
+      width: 23px;
+      height: 23px;
+    }
+
+    .service-copy {
+      min-width: 0;
+    }
+
+    .service-name {
+      display: block;
+      overflow: hidden;
+      font-size: 1rem;
+      font-weight: 670;
+      letter-spacing: -0.012em;
+      line-height: 1.35;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .service-url {
+      display: block;
+      overflow: hidden;
+      margin-top: 0.28rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      line-height: 1.45;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .service-action {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      color: var(--text-soft);
+      background: rgba(255, 255, 255, 0.025);
+      transition:
+        color 180ms ease,
+        border-color 180ms ease,
+        background-color 180ms ease,
+        transform 240ms var(--ease);
+    }
+
+    .service-action svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .service-card:hover .service-action {
+      border-color: var(--accent-line);
+      color: var(--page);
+      background: var(--accent);
+      transform: translate(2px, -2px);
+    }
+
+    .panel-note {
+      display: flex;
+      gap: 0.68rem;
+      align-items: flex-start;
+      margin: 1rem 0 0;
+      padding: 0.4rem 0.55rem 0.15rem;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .panel-note svg {
+      width: 17px;
+      height: 17px;
+      margin-top: 0.12rem;
+      color: var(--accent);
+    }
+
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      min-height: 78px;
+      padding-block: 1.25rem;
+      border-top: 1px solid var(--line);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    .copyright,
+    .footer-note {
+      margin: 0;
+    }
+
+    .footer-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.52rem;
+      text-align: right;
+    }
+
+    .footer-note svg {
+      width: 15px;
+      height: 15px;
+      color: var(--text-muted);
+    }
+
+    .no-js .language-control {
+      display: none;
+    }
+
+    @media (max-width: 940px) {
+      body::after {
+        top: -20rem;
+        right: -22rem;
+      }
+
+      .site-main {
+        align-items: flex-start;
+      }
+
+      .status-layout {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+
+      .message-column {
+        max-width: 760px;
+      }
+
+      h1 {
+        max-width: 15ch;
+      }
+
+      .services-panel {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --radius-large: 22px;
+        --radius-medium: 15px;
+      }
+
+      body::before {
+        background-size: 48px 48px;
+      }
+
+      .site-header,
+      .site-main,
+      .site-footer {
+        width: min(calc(100% - 2rem), var(--content-width));
+      }
+
+      .site-header {
+        min-height: 78px;
+        padding-block: 1rem;
+      }
+
+      .brand-mark {
+        width: 35px;
+        height: 35px;
+      }
+
+      .brand-mark::before,
+      .brand-mark::after {
+        left: 9px;
+      }
+
+      .brand-name {
+        max-width: 150px;
+        font-size: 0.91rem;
+      }
+
+      .language-button {
+        min-width: 39px;
+        min-height: 32px;
+        padding-inline: 0.5rem;
+      }
+
+      .site-main {
+        padding-block: 3.4rem 4.2rem;
+      }
+
+      .status-layout {
+        gap: 2.8rem;
+      }
+
+      .message-column {
+        padding-left: 1.35rem;
+      }
+
+      .message-column::before {
+        width: 1px;
+      }
+
+      .status-label {
+        margin-bottom: 1.15rem;
+        font-size: 0.72rem;
+      }
+
+      h1 {
+        font-size: clamp(2.45rem, 13.4vw, 4.1rem);
+        letter-spacing: -0.052em;
+        line-height: 1.01;
+      }
+
+      .lead {
+        margin-top: 1.4rem;
+        font-size: 1rem;
+        line-height: 1.68;
+      }
+
+      .domain-state {
+        margin-top: 1.8rem;
+        padding-top: 1.1rem;
+        font-size: 0.84rem;
+      }
+
+      .services-panel {
+        padding: 0.8rem;
+      }
+
+      .services-header {
+        align-items: flex-start;
+        padding: 0.7rem 0.45rem 1.1rem;
+      }
+
+      .service-count {
+        padding-top: 0.25rem;
+        font-size: 0.72rem;
+      }
+
+      .service-card {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 0.8rem;
+        min-height: 92px;
+        padding: 0.85rem;
+      }
+
+      .service-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+      }
+
+      .service-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .service-action {
+        width: 34px;
+        height: 34px;
+      }
+
+      .service-url {
+        font-size: 0.66rem;
+      }
+
+      .panel-note {
+        padding-inline: 0.45rem;
+      }
+
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-block: 1.3rem;
+      }
+
+      .footer-note {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .brand-name {
+        max-width: 112px;
+      }
+
+      .service-card {
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+
+      .service-action {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (prefers-contrast: more) {
+      :root {
+        --line: rgba(244, 247, 245, 0.3);
+        --line-strong: rgba(244, 247, 245, 0.48);
+        --text-soft: #d6dfdc;
+        --text-muted: #b7c3bf;
+      }
+    }
+
+    @media print {
+      :root {
+        --page: #ffffff;
+        --surface: #ffffff;
+        --text: #101a17;
+        --text-soft: #34443e;
+        --text-muted: #56655f;
+        --line: rgba(16, 26, 23, 0.2);
+        --line-strong: rgba(16, 26, 23, 0.32);
+        --accent: #14785e;
+        --accent-soft: rgba(20, 120, 94, 0.08);
+        --accent-line: rgba(20, 120, 94, 0.32);
+      }
+
+      body {
+        background: #ffffff;
+      }
+
+      body::before,
+      body::after,
+      .language-control,
+      .status-indicator::after {
+        display: none;
+      }
+
+      .page-shell {
+        min-height: auto;
+      }
+
+      .site-main {
+        padding-block: 4rem;
+      }
+
+      .services-panel {
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+
+      .service-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Skip to main content</a>
+
+  <div class="page-shell">
+    <header class="site-header" aria-label="Website header" data-i18n-aria-label="headerLabel">
+      <a class="brand" href="https://starcode-bom.com/" aria-label="Starcode BOM homepage" data-i18n-aria-label="brandLabel">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Starcode BOM</span>
+      </a>
+
+      <div class="language-control" role="group" aria-label="Select language" data-i18n-aria-label="languageLabel">
+        <button class="language-button" type="button" data-language="de" aria-pressed="false">DE</button>
+        <button class="language-button" type="button" data-language="en" aria-pressed="true">EN</button>
+      </div>
+    </header>
+
+    <main class="site-main" id="main" tabindex="-1">
+      <div class="status-layout">
+        <section class="message-column" aria-labelledby="page-title">
+          <p class="status-label">
+            <span class="status-indicator" aria-hidden="true"></span>
+            <span data-i18n="statusLabel">Update in progress</span>
+          </p>
+
+          <h1 id="page-title" data-i18n="title">The main site is being updated.</h1>
+
+          <p class="lead" data-i18n="lead">
+            starcode-bom.com is temporarily unavailable. The services listed here remain accessible while work on the main site continues.
+          </p>
+
+          <div class="domain-state">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M12 7.8v4.8"></path>
+              <path d="M12 16.4h.01"></path>
+            </svg>
+            <span>
+              <strong data-i18n="domainStateTitle">Main domain unavailable.</strong>
+              <span data-i18n="domainStateText"> No action is required. Please use one of the available destinations until the update is complete.</span>
+            </span>
+          </div>
+        </section>
+
+        <aside class="services-panel" aria-labelledby="services-title">
+          <div class="services-header">
+            <div>
+              <p class="services-kicker" data-i18n="servicesKicker">Service access</p>
+              <h2 class="services-title" id="services-title" data-i18n="servicesTitle">Available destinations</h2>
+            </div>
+            <span class="service-count" data-i18n="serviceCount">2 services online</span>
+          </div>
+
+          <ul class="services-list">
+            <li>
+              <a
+                class="service-card"
+                href="https://wific-install.starcode-bom.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open WiFiC Install"
+                data-i18n-aria-label="wificLabel"
+              >
+                <span class="service-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.8 9.8a10.4 10.4 0 0 1 14.4 0"></path>
+                    <path d="M7.8 13a6.2 6.2 0 0 1 8.4 0"></path>
+                    <path d="M10.6 16.2a2.2 2.2 0 0 1 2.8 0"></path>
+                    <circle cx="12" cy="19" r=".7" fill="currentColor" stroke="none"></circle>
+                  </svg>
+                </span>
+                <span class="service-copy">
+                  <span class="service-name">WiFiC Install</span>
+                  <span class="service-url">wific-install.starcode-bom.com</span>
+                </span>
+                <span class="service-action" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 16 16 8"></path>
+                    <path d="M9 8h7v7"></path>
+                  </svg>
+                </span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="service-card"
+                href="https://metadata.starcode-bom.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Metadata"
+                data-i18n-aria-label="metadataLabel"
+              >
+                <span class="service-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="4" width="16" height="16" rx="3"></rect>
+                    <path d="M8 9h8"></path>
+                    <path d="M8 12.5h5"></path>
+                    <path d="M8 16h7"></path>
+                  </svg>
+                </span>
+                <span class="service-copy">
+                  <span class="service-name">Metadata</span>
+                  <span class="service-url">metadata.starcode-bom.com</span>
+                </span>
+                <span class="service-action" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 16 16 8"></path>
+                    <path d="M9 8h7v7"></path>
+                  </svg>
+                </span>
+              </a>
+            </li>
+          </ul>
+
+          <p class="panel-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3.8 20 7v5.3c0 4.2-3.1 7-8 8.3-4.9-1.3-8-4.1-8-8.3V7l8-3.2Z"></path>
+              <path d="m8.9 12.1 2 2 4.4-4.5"></path>
+            </svg>
+            <span data-i18n="panelNote">Links lead directly to official Starcode BOM subdomains.</span>
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p class="copyright">
+        &copy; <span id="copyright-year">2026</span> Starcode BOM.
+        <span data-i18n="copyright">All rights reserved.</span>
+      </p>
+
+      <p class="footer-note">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M3.5 12h17"></path>
+          <path d="M12 3c2.3 2.5 3.5 5.5 3.5 9s-1.2 6.5-3.5 9c-2.3-2.5-3.5-5.5-3.5-9S9.7 5.5 12 3Z"></path>
+        </svg>
+        <span data-i18n="languageNote">Language selected from browser settings</span>
+      </p>
+    </footer>
+  </div>
+
+  <noscript>
+    <style>
+      .noscript-note {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        left: 1rem;
+        z-index: 20;
+        max-width: 680px;
+        margin-inline: auto;
+        padding: 0.85rem 1rem;
+        border: 1px solid rgba(240, 198, 117, 0.38);
+        border-radius: 12px;
+        color: #eadcbf;
+        background: #172019;
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 0.86rem;
+        line-height: 1.5;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      }
+    </style>
+    <div class="noscript-note">Automatic language selection requires JavaScript. The English version is currently displayed.</div>
+  </noscript>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var translations = {
+        de: {
+          pageTitle: "Seiten-Update | Starcode BOM",
+          pageDescription: "Die Starcode-BOM-Hauptdomain ist während einer Aktualisierung vorübergehend nicht verfügbar. Alternative Dienste bleiben erreichbar.",
+          skipLink: "Zum Hauptinhalt springen",
+          headerLabel: "Kopfbereich der Website",
+          brandLabel: "Starcode-BOM-Startseite",
+          languageLabel: "Sprache auswählen",
+          statusLabel: "Aktualisierung läuft",
+          title: "Die Hauptseite wird gerade aktualisiert.",
+          lead: "starcode-bom.com ist vorübergehend nicht verfügbar. Die hier aufgeführten Dienste bleiben erreichbar, während die Arbeiten an der Hauptseite weiterlaufen.",
+          domainStateTitle: "Hauptdomain nicht verfügbar.",
+          domainStateText: " Du musst nichts unternehmen. Nutze bitte bis zum Abschluss des Updates eines der verfügbaren Ziele.",
+          servicesKicker: "Dienstzugriff",
+          servicesTitle: "Verfügbare Ziele",
+          serviceCount: "2 Dienste online",
+          wificLabel: "WiFiC Install öffnen",
+          metadataLabel: "Metadata öffnen",
+          panelNote: "Die Links führen direkt zu offiziellen Starcode-BOM-Subdomains.",
+          copyright: "Alle Rechte vorbehalten.",
+          languageNote: "Sprache anhand der Browsereinstellung ausgewählt"
+        },
+        en: {
+          pageTitle: "Site update | Starcode BOM",
+          pageDescription: "The Starcode BOM main domain is temporarily unavailable while the site is being updated. Alternative services remain available.",
+          skipLink: "Skip to main content",
+          headerLabel: "Website header",
+          brandLabel: "Starcode BOM homepage",
+          languageLabel: "Select language",
+          statusLabel: "Update in progress",
+          title: "The main site is being updated.",
+          lead: "starcode-bom.com is temporarily unavailable. The services listed here remain accessible while work on the main site continues.",
+          domainStateTitle: "Main domain unavailable.",
+          domainStateText: " No action is required. Please use one of the available destinations until the update is complete.",
+          servicesKicker: "Service access",
+          servicesTitle: "Available destinations",
+          serviceCount: "2 services online",
+          wificLabel: "Open WiFiC Install",
+          metadataLabel: "Open Metadata",
+          panelNote: "Links lead directly to official Starcode BOM subdomains.",
+          copyright: "All rights reserved.",
+          languageNote: "Language selected from browser settings"
+        }
+      };
+
+      var description = document.querySelector('meta[name="description"]');
+      var languageButtons = Array.prototype.slice.call(document.querySelectorAll("[data-language]"));
+      var textNodes = Array.prototype.slice.call(document.querySelectorAll("[data-i18n]"));
+      var ariaNodes = Array.prototype.slice.call(document.querySelectorAll("[data-i18n-aria-label]"));
+
+      function setLanguage(language) {
+        var selected = translations[language] ? language : "en";
+        var dictionary = translations[selected];
+
+        document.documentElement.lang = selected;
+        document.title = dictionary.pageTitle;
+
+        if (description) {
+          description.setAttribute("content", dictionary.pageDescription);
+        }
+
+        textNodes.forEach(function (node) {
+          var key = node.getAttribute("data-i18n");
+          if (Object.prototype.hasOwnProperty.call(dictionary, key)) {
+            node.textContent = dictionary[key];
+          }
+        });
+
+        ariaNodes.forEach(function (node) {
+          var key = node.getAttribute("data-i18n-aria-label");
+          if (Object.prototype.hasOwnProperty.call(dictionary, key)) {
+            node.setAttribute("aria-label", dictionary[key]);
+          }
+        });
+
+        languageButtons.forEach(function (button) {
+          var isSelected = button.getAttribute("data-language") === selected;
+          button.setAttribute("aria-pressed", String(isSelected));
+        });
+      }
+
+      languageButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          setLanguage(button.getAttribute("data-language"));
+        });
+      });
+
+      var year = document.getElementById("copyright-year");
+      if (year) {
+        year.textContent = String(new Date().getFullYear());
+      }
+
+      setLanguage(window.__starcodeInitialLanguage || "en");
+    }());
+  </script>
+</body>
+</html>
