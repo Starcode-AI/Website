@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07080b">
+  <meta name="description" content="404 Not Found — ask the magic 8-ball.">
+  <title>404 — Ask Again</title>
+  <style>
+    .m8-page,
+    .m8-page * {
+      box-sizing: border-box;
+    }
+
+    body:has(> .m8-page) {
+      min-height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #07080b;
+    }
+
+    .m8-page {
+      --m8-ink: #f5f7fb;
+      --m8-accent: #7b8cff;
+      --m8-shell: #101116;
+      --m8-duration: 7s;
+
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      min-height: 100svh;
+      place-items: center;
+      overflow: hidden;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      color: var(--m8-ink);
+      background:
+        radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--m8-accent) 10%, transparent) 0 8%, transparent 42%),
+        linear-gradient(180deg, #0b0c11 0%, #07080b 72%, #050609 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-align: center;
+    }
+
+    .m8-page::before {
+      position: absolute;
+      z-index: -1;
+      width: min(55rem, 115vw);
+      aspect-ratio: 1;
+      border: 1px solid color-mix(in srgb, var(--m8-ink) 4%, transparent);
+      border-radius: 50%;
+      background: repeating-radial-gradient(
+        circle,
+        transparent 0 2.8rem,
+        color-mix(in srgb, var(--m8-ink) 2.5%, transparent) 2.85rem 2.9rem
+      );
+      content: "";
+      opacity: 0.55;
+      mask-image: linear-gradient(to bottom, transparent, #000 26%, #000 70%, transparent);
+    }
+
+    .m8-content {
+      display: grid;
+      width: min(100%, 38rem);
+      justify-items: center;
+      gap: clamp(0.9rem, 3vh, 1.5rem);
+    }
+
+    .m8-copy {
+      display: grid;
+      gap: 0.45rem;
+      animation: m8-copy-drift var(--m8-duration) cubic-bezier(.4, 0, .2, 1) infinite;
+    }
+
+    .m8-kicker {
+      margin: 0;
+      color: color-mix(in srgb, var(--m8-ink) 52%, transparent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    .m8-title {
+      margin: 0;
+      font-size: clamp(1.25rem, 2vw + 0.75rem, 2rem);
+      font-weight: 540;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+    }
+
+    .m8-stage {
+      position: relative;
+      width: clamp(17rem, 60vmin, 28rem);
+      aspect-ratio: 1 / 1.12;
+    }
+
+    .m8-ball {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 50%;
+      width: 92%;
+      aspect-ratio: 1;
+      border: 1px solid color-mix(in srgb, var(--m8-ink) 7%, transparent);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      transform-origin: 50% 86%;
+      animation: m8-shake var(--m8-duration) cubic-bezier(.36, .07, .19, .97) infinite;
+      background:
+        radial-gradient(circle at 30% 19%, rgba(255,255,255,.32) 0 .7%, rgba(255,255,255,.11) 2.7%, transparent 8.5%),
+        radial-gradient(circle at 33% 24%, #333641 0%, #1d1f27 14%, var(--m8-shell) 42%, #08090d 73%, #030407 100%);
+      box-shadow:
+        inset -2.2rem -2.7rem 3.5rem rgba(0,0,0,.72),
+        inset 1.1rem 1rem 2.5rem rgba(255,255,255,.035),
+        0 1.1rem 2rem rgba(0,0,0,.4);
+    }
+
+    .m8-ball::before {
+      position: absolute;
+      top: 9%;
+      left: 17%;
+      width: 33%;
+      height: 15%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(255,255,255,.18), transparent 69%);
+      content: "";
+      filter: blur(0.5rem);
+      opacity: 0.72;
+      transform: rotate(-27deg);
+    }
+
+    .m8-badge {
+      position: absolute;
+      top: 19%;
+      left: 26%;
+      display: grid;
+      width: 16%;
+      min-width: 2.8rem;
+      aspect-ratio: 1;
+      place-items: center;
+      border-radius: 50%;
+      color: #0b0c10;
+      background: #f7f7f4;
+      box-shadow:
+        inset -0.28rem -0.35rem 0.6rem rgba(0,0,0,.17),
+        0 0.4rem 0.9rem rgba(0,0,0,.4);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.45rem, 4.2vmin, 2.25rem);
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .m8-window {
+      position: absolute;
+      left: 50%;
+      bottom: 10%;
+      width: 42%;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border: clamp(0.38rem, 1.1vmin, 0.62rem) solid #050609;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      background:
+        radial-gradient(circle at 50% 38%, rgba(77,96,189,.28), transparent 34%),
+        radial-gradient(circle at 50% 80%, #090a18, #03040a 65%);
+      box-shadow:
+        inset 0 0 1.4rem rgba(0,0,0,.95),
+        inset 0 .5rem 1rem rgba(255,255,255,.025),
+        0 0 0 1px rgba(255,255,255,.035);
+    }
+
+    .m8-window::before {
+      position: absolute;
+      inset: 18% 11% 7%;
+      background: linear-gradient(180deg, #8997ff, #5362cb 72%);
+      clip-path: polygon(50% 0, 100% 89%, 0 89%);
+      content: "";
+      filter: drop-shadow(0 0 .65rem rgba(99,116,255,.38));
+      opacity: .82;
+    }
+
+    .m8-window::after {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        radial-gradient(ellipse at 38% 18%, rgba(255,255,255,.16), transparent 28%),
+        linear-gradient(180deg, transparent 55%, rgba(0,0,0,.5));
+      content: "";
+      pointer-events: none;
+    }
+
+    .m8-answer {
+      position: absolute;
+      z-index: 1;
+      top: 47%;
+      left: 50%;
+      width: 72%;
+      margin: 0;
+      color: var(--m8-ink);
+      font-size: clamp(0.75rem, 2.6vmin, 1.05rem);
+      font-weight: 760;
+      letter-spacing: .08em;
+      line-height: 1.05;
+      text-shadow: 0 0 .55rem rgba(255,255,255,.35);
+      opacity: 0;
+      transform: translate(-50%, 2.5rem);
+      will-change: filter, opacity, transform;
+    }
+
+    .m8-answer--404 {
+      font-size: clamp(1.15rem, 4vmin, 1.7rem);
+      animation: m8-answer-404 var(--m8-duration) cubic-bezier(.2, .7, .2, 1) infinite;
+    }
+
+    .m8-answer--again {
+      animation: m8-answer-again var(--m8-duration) cubic-bezier(.2, .7, .2, 1) infinite;
+    }
+
+    .m8-shadow {
+      position: absolute;
+      z-index: 1;
+      bottom: 1.5%;
+      left: 50%;
+      width: 71%;
+      height: 9%;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      transform-origin: center;
+      animation: m8-shadow-shake var(--m8-duration) cubic-bezier(.36, .07, .19, .97) infinite;
+      background: rgba(0,0,0,.76);
+      filter: blur(clamp(0.6rem, 1.6vmin, 0.95rem));
+    }
+
+    .m8-note {
+      margin: -0.45rem 0 0;
+      color: color-mix(in srgb, var(--m8-ink) 38%, transparent);
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+
+    @keyframes m8-shake {
+      0%, 4%, 29%, 100% { transform: translateX(-50%) rotate(0deg) scale(1); }
+      6%  { transform: translateX(calc(-50% - 0.55rem)) translateY(-.08rem) rotate(-2.3deg) scale(1.006); }
+      8%  { transform: translateX(calc(-50% + 0.65rem)) translateY(.06rem) rotate(2.7deg) scale(.997); }
+      10% { transform: translateX(calc(-50% - 0.72rem)) translateY(-.12rem) rotate(-3deg) scale(1.008); }
+      12% { transform: translateX(calc(-50% + 0.74rem)) translateY(.08rem) rotate(3.1deg) scale(.997); }
+      14% { transform: translateX(calc(-50% - 0.68rem)) translateY(-.1rem) rotate(-2.7deg) scale(1.006); }
+      16% { transform: translateX(calc(-50% + 0.58rem)) translateY(.05rem) rotate(2.35deg) scale(.999); }
+      18% { transform: translateX(calc(-50% - 0.44rem)) translateY(-.06rem) rotate(-1.8deg); }
+      20% { transform: translateX(calc(-50% + 0.3rem)) rotate(1.2deg); }
+      23% { transform: translateX(calc(-50% - 0.14rem)) rotate(-.55deg); }
+      26% { transform: translateX(calc(-50% + 0.06rem)) rotate(.2deg); }
+    }
+
+    @keyframes m8-shadow-shake {
+      0%, 4%, 29%, 100% { transform: translateX(-50%) scaleX(1); opacity: .72; }
+      6%  { transform: translateX(calc(-50% + .25rem)) scaleX(1.11); opacity: .64; }
+      8%  { transform: translateX(calc(-50% - .3rem)) scaleX(.94); opacity: .78; }
+      10% { transform: translateX(calc(-50% + .35rem)) scaleX(1.14); opacity: .62; }
+      12% { transform: translateX(calc(-50% - .38rem)) scaleX(.92); opacity: .8; }
+      14% { transform: translateX(calc(-50% + .32rem)) scaleX(1.12); opacity: .65; }
+      16% { transform: translateX(calc(-50% - .26rem)) scaleX(.95); opacity: .77; }
+      18% { transform: translateX(calc(-50% + .2rem)) scaleX(1.08); }
+      21% { transform: translateX(calc(-50% - .12rem)) scaleX(.98); }
+      25% { transform: translateX(calc(-50% + .04rem)) scaleX(1.02); }
+    }
+
+    @keyframes m8-answer-404 {
+      0%, 26% {
+        opacity: 0;
+        filter: blur(.55rem);
+        transform: translate(-50%, 2.6rem) scale(.92);
+      }
+      33% {
+        opacity: .25;
+        filter: blur(.32rem);
+        transform: translate(-50%, 1.2rem) scale(.96);
+      }
+      39%, 49% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translate(-50%, -50%) scale(1);
+      }
+      56% {
+        opacity: 0;
+        filter: blur(.5rem);
+        transform: translate(-50%, 2.35rem) scale(.93);
+      }
+      57%, 100% {
+        opacity: 0;
+        filter: blur(.6rem);
+        transform: translate(-50%, 2.7rem) scale(.9);
+      }
+    }
+
+    @keyframes m8-answer-again {
+      0%, 55% {
+        opacity: 0;
+        filter: blur(.6rem);
+        transform: translate(-50%, 2.7rem) scale(.9);
+      }
+      63% {
+        opacity: .25;
+        filter: blur(.32rem);
+        transform: translate(-50%, 1.15rem) scale(.96);
+      }
+      70%, 86% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translate(-50%, -50%) scale(1);
+      }
+      95%, 100% {
+        opacity: 0;
+        filter: blur(.55rem);
+        transform: translate(-50%, 2.6rem) scale(.92);
+      }
+    }
+
+    @keyframes m8-copy-drift {
+      0%, 4%, 29%, 100% { opacity: 1; transform: translateY(0); }
+      8%, 16% { opacity: .72; transform: translateY(-.08rem); }
+      12%, 20% { opacity: .86; transform: translateY(.06rem); }
+    }
+
+    @media (max-height: 690px) and (orientation: landscape) {
+      .m8-page {
+        padding: 1rem;
+      }
+
+      .m8-content {
+        grid-template-columns: minmax(10rem, .65fr) minmax(17rem, 1fr);
+        width: min(100%, 48rem);
+        align-items: center;
+      }
+
+      .m8-copy {
+        text-align: left;
+      }
+
+      .m8-stage {
+        width: min(68vh, 27rem);
+      }
+
+      .m8-note {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .m8-copy,
+      .m8-ball,
+      .m8-shadow,
+      .m8-answer {
+        animation: none;
+      }
+
+      .m8-answer--404 {
+        opacity: 1;
+        filter: none;
+        transform: translate(-50%, -50%);
+      }
+
+      .m8-answer--again {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="m8-page">
+    <div class="m8-content">
+      <header class="m8-copy">
+        <p class="m8-kicker">Not found</p>
+        <h1 class="m8-title">The answer is unclear.</h1>
+      </header>
+
+      <div class="m8-stage" role="img" aria-label="A magic 8-ball reveals the message 404, then Ask Again.">
+        <div class="m8-ball" aria-hidden="true">
+          <span class="m8-badge">8</span>
+          <div class="m8-window">
+            <p class="m8-answer m8-answer--404">404</p>
+            <p class="m8-answer m8-answer--again">ASK<br>AGAIN</p>
+          </div>
+        </div>
+        <div class="m8-shadow" aria-hidden="true"></div>
+      </div>
+
+      <p class="m8-note">The page you asked for isn't here.</p>
+    </div>
+  </main>
+</body>
+</html>
